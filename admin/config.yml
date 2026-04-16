@@ -5,7 +5,7 @@ backend:
   branch: main
 
 media_folder: "images/portfolio" # Φάκελος όπου θα αποθηκεύονται οι εικόνες
-public_folder: "/images/portfolio"
+public_folder: "images/portfolio"
 
 collections:
   - name: "portfolio"
