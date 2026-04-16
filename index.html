@@ -1,1 +1,140 @@
 
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Το Εργαστήρι - Τουμαζάτος Νίκος</title>
+    <style>
+        :root {
+            --yellow: #f4d03f;
+            --grey: #4a4a4a;
+            --white: #ffffff;
+        }
+        body { margin: 0; font-family: 'Segoe UI', Arial, sans-serif; background: var(--white); overflow: hidden; }
+        
+        .container { 
+            display: flex; 
+            flex-direction: column; 
+            height: 100vh; 
+            justify-content: space-between;
+        }
+
+        /* Display Area for Labels */
+        #status-display {
+            height: 40px;
+            color: var(--yellow);
+            font-weight: bold;
+            font-size: 1.1rem;
+            text-align: center;
+            margin-top: 15vh;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Main UI Grid */
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            align-items: center;
+            padding: 0 10px;
+        }
+
+        .side-icons {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .icon-btn {
+            width: 35px;
+            height: 35px;
+            cursor: pointer;
+            transition: transform 0.1s;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        .icon-btn:active { transform: scale(0.9); }
+
+        .center-gears {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .gears-svg { width: 120px; filter: grayscale(1); opacity: 0.8; }
+        
+        .brand-name {
+            color: var(--yellow);
+            margin: 15px 0 5px 0;
+            font-size: 1.4rem;
+            font-weight: 800;
+        }
+
+        /* Active Footer */
+        .footer {
+            background: var(--grey);
+            color: var(--white);
+            padding: 25px 15px;
+            text-align: center;
+            font-size: 0.85rem;
+            line-height: 1.8;
+        }
+
+        .footer a {
+            color: var(--white);
+            text-decoration: none;
+            display: block;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 5px;
+            margin-bottom: 5px;
+        }
+
+        .footer a:last-child { border: none; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div id="status-display"></div>
+
+    <div class="main-content">
+        <div class="side-icons">
+            <img src="https://img.icons8.com/ios-filled/50/f4d03f/pencil.png" class="icon-btn" onclick="show('ΕΛΕΥΘΕΡΟ ΣΧΕΔΙΟ')">
+            <img src="https://img.icons8.com/ios-filled/50/f4d03f/paint-palette.png" class="icon-btn" onclick="show('ΖΩΓΡΑΦΙΚΗ')">
+            <img src="https://img.icons8.com/ios-filled/50/f4d03f/chat-bubble.png" class="icon-btn" onclick="show('COMIC')">
+        </div>
+
+        <div class="center-gears">
+            <img src="https://www.svgrepo.com/show/52838/gears.svg" class="gears-svg">
+            <div class="brand-name">Το ΕΡΓΑΣΤΗΡΙ</div>
+            <div style="color:var(--yellow); font-size: 0.8rem;">ΤΟΥΜΑΖΑΤΟΣ ΝΙΚΟΣ</div>
+        </div>
+
+        <div class="side-icons">
+            <img src="https://img.icons8.com/ios-filled/50/f4d03f/star.png" class="icon-btn" onclick="show('CARTOON')">
+            <img src="https://img.icons8.com/ios-filled/50/f4d03f/marker.png" class="icon-btn" onclick="show('ΕΙΚΟΝΟΓΡΑΦΗΣΗ')">
+            <img src="https://img.icons8.com/ios-filled/50/f4d03f/book.png" class="icon-btn" onclick="show('PORTFOLIO')">
+        </div>
+    </div>
+
+    <div class="footer">
+        <a href="https://www.google.com/maps/search/?api=1&query=Παπαφλέσσα+47+Πύργος">📍 Παπαφλέσσα 47, Πύργος</a>
+        <a href="tel:6939637129">📞 τηλ.: 6939 637129</a>
+        <a href="mailto:toumazatosn@gmail.com">✉️ toumazatosn@gmail.com</a>
+    </div>
+</div>
+
+<script>
+    let timer;
+    function show(text) {
+        const display = document.getElementById('status-display');
+        display.innerText = text;
+        clearTimeout(timer);
+        timer = setTimeout(() => { display.innerText = ''; }, 2500);
+    }
+</script>
+
+</body>
+</html>
