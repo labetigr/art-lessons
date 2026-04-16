@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Το Εργαστήρι - Τουμαζάτος Νίκος</title>
+    <style>
+        :root {
+            --yellow: #f4d03f; /* Χρώμα Κάρτας */
+            --dark-grey: #4a4a4a;
+            --white: #ffffff;
+        }
+        body { margin: 0; font-family: 'Segoe UI', sans-serif; background: var(--white); }
+        
+        .container { 
+            display: flex; 
+            flex-direction: column; 
+            height: 100vh; 
+            text-align: center;
+        }
+
+        /* Ζώνη Ενδείξεων (Πάνω από τα γρανάζια) */
+        #display-text {
+            height: 50px;
+            color: var(--yellow);
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-top: 20px;
+            text-transform: uppercase;
+        }
+
+        /* Κεντρικό Grid (3-Γρανάζια-3) */
+        .main-ui {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr 1fr;
+            align-items: center;
+            gap: 10px;
+            padding: 20px;
+        }
+
+        .side-buttons { display: flex; flex-direction: column; gap: 20px; }
+        
+        .btn {
+            background: var(--yellow);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .gears-logo { width: 100%; max-width: 150px; filter: grayscale(1); opacity: 0.7; }
+
+        /* Footer Στοιχεία */
+        .footer {
+            background: var(--dark-grey);
+            color: var(--white);
+            padding: 20px;
+            margin-top: auto;
+            font-size: 0.9em;
+        }
+        .footer a { color: var(--white); text-decoration: none; display: block; margin: 5px 0; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div id="display-text"></div>
+
+    <div class="main-ui">
+        <div class="side-buttons">
+            <div class="btn" onclick="show('ΖΩΓΡΑΦΙΚΗ')">🎨</div>
+            <div class="btn" onclick="show('ΕΛΕΥΘΕΡΟ ΣΧΕΔΙΟ')">✏️</div>
+            <div class="btn" onclick="show('COMIC')">💬</div>
+        </div>
+
+        <div class="center-logo">
+            <img src="gears_logo.svg" class="gears-logo" alt="Gears">
+            <h2 style="color:var(--yellow); margin:10px 0 0 0;">Το ΕΡΓΑΣΤΗΡΙ</h2>
+            <p style="color:var(--yellow); margin:0;">Τουμαζάτος Νίκος</p>
+        </div>
+
+        <div class="side-buttons">
+            <div class="btn" onclick="show('CARTOON')">⭐</div>
+            <div class="btn" onclick="show('ΕΙΚΟΝΟΓΡΑΦΗΣΗ')">🏃</div>
+            <div class="btn" onclick="show('PORTFOLIO')">📚</div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div>Παπαφλέσσα 47, Πύργος</div>
+        <a href="tel:6939637129">τηλ.: 6939 637129</a>
+        <a href="mailto:toumazatosn@gmail.com">toumazatosn@gmail.com</a>
+    </div>
+</div>
+
+<script>
+    function show(text) {
+        document.getElementById('display-text').innerText = text;
+        // Reset μετά από 3 δευτερόλεπτα
+        setTimeout(() => { document.getElementById('display-text').innerText = ''; }, 3000);
+    }
+</script>
+
+</body>
+</html>
