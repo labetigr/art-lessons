@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="el">
 <head>
@@ -10,58 +9,36 @@
     <meta name="keywords" content="Πύργος, art, lesson, ζωγραφική, σχέδιο, σχολή, εικαστικά, Τουμαζάτος Νίκος, Παπαφλέσσα 47, εργαστήρι τέχνης, μαθήματα ζωγραφικής Πύργος, Ηλεία, comic, εικονογράφηση">
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     
     <style>
         :root { --yellow: #f1c40f; --grey: #808080; }
         * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         
-        html, body { 
-            margin: 0; padding: 0; width: 100%; height: 100%; 
-            overflow: hidden; font-family: sans-serif; background: white; 
-        }
+        html, body { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; font-family: sans-serif; background: white; }
 
-        .wrapper { 
-            display: flex; flex-direction: column; 
-            height: 100vh; width: 100%;
-            justify-content: space-between; align-items: center;
-            padding-top: 20px;
-        }
-
+        .wrapper { display: flex; flex-direction: column; height: 100vh; width: 100%; justify-content: space-between; align-items: center; padding-top: 20px; }
         .header-section { flex-shrink: 0; text-align: center; }
         #display-text { height: 25px; color: var(--yellow); font-weight: bold; font-size: 1.1em; text-transform: uppercase; }
         .logo-main { color: var(--yellow); font-size: 2.1em; font-weight: 900; margin: 0; letter-spacing: -1px; }
 
-        .ui-grid { 
-            display: grid; 
-            grid-template-columns: 1fr 140px 1fr; 
-            align-items: center; justify-content: center; 
-            width: 100%; max-width: 380px; flex-grow: 1;
-        }
-
+        .ui-grid { display: grid; grid-template-columns: 1fr 140px 1fr; align-items: center; justify-content: center; width: 100%; max-width: 380px; flex-grow: 1; }
         .side-col { display: flex; flex-direction: column; gap: 40px; align-items: center; }
-        .icon-btn { width: 30px; height: 30px; fill: var(--yellow); cursor: pointer; transition: transform 0.2s; }
+        
+        /* ΣΤΥΛ ΕΙΚΟΝΙΔΙΩΝ (Font-Awesome) */
+        .icon-btn { color: var(--yellow); font-size: 38px; cursor: pointer; transition: transform 0.2s; }
         .icon-btn:active { transform: scale(0.8); }
 
-        .gear-svg { width: 110px; fill: #e0e0e0; animation: rotate 20s linear infinite; }
-        
-        @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        .gears { display: flex; justify-content: center; color: var(--yellow); font-size: 70px; }
 
-        .bottom-section { 
-            width: 100%; flex-shrink: 0; text-align: center; 
-            margin-bottom: 80px; 
-        }
+        .bottom-section { width: 100%; flex-shrink: 0; text-align: center; margin-bottom: 80px; }
         .name-tag { padding-bottom: 20px; }
         .name-tag h1 { font-size: 1.5em; margin: 0; color: var(--yellow); }
-        .name-tag p { margin: 2px 0; font-size: 1em; font-weight: bold; color: var(--grey); }
+        .name-tag p { margin: 2px 0; font-size: 1em; font-weight: bold; color: #57585a; }
 
-        .footer { 
-            background: var(--grey); color: white; 
-            padding: 15px 0 30px 0; 
-            width: 100%; display: flex; flex-direction: column; 
-            justify-content: center; align-items: center; gap: 6px;
-        }
-        .footer a, .footer div { color: white; text-decoration: none; font-size: 0.95em; display: block; text-align: center; }
+        .footer { background: var(--grey); color: white; padding: 15px 0 30px 0; width: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 6px; }
+        .footer a { color: white; text-decoration: none; font-size: 0.95em; }
 
         #portfolio-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: white; z-index: 9999; transform: translateY(100%); transition: 0.4s ease; display: flex; flex-direction: column; }
         #portfolio-overlay.active { transform: translateY(0); }
@@ -81,16 +58,17 @@
     
     <div class="ui-grid">
         <div class="side-col">
-            <div class="icon-btn" onclick="show('ΖΩΓΡΑΦΙΚΗ')"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAACvElEQVR4nO2Xz2sTQRSAX8SDePZf0IOnInhS8OCpB68iKHgV8SDeRTyIeKrgVQSvInhS8CDiRTyIeBBPXv0PRLTe7ia72U0zk9mS6S7SBy4M7I99O9/Mm/dmNoSIs7Ozsw9S6XToS6fT6X/S69Nn05fT19I30rfSd9L30g8yX0s/yjzIPMo8yTyvLPN0n8yX0v9I70rfyS48I70r/Sj799D78fS19I0M98D/I30jI/09fS39S98/0vczG0Z6f/pS+kHmaRnp76XvZZ6Wkf5e+l7maRnp76XvZZ6Wkf5e+l7maRnp76XvZZ6Wkf5e+l7maRnp76XvZZ6Wkf5e+l7maRnp76XvZZ6Wkf5e+l7maRnp76XvZZ6Wkf5e+l7maRnp76XvZZ6Wkf5e+l7maRnp76XvZZ6Wkf5e+l7maRnp76XvZZ6Wkf5e+l7maRnp76XvZZ6Wkf5e+l7maRnp76XvZZ6Wkf5e+l7maRnp76XvZZ6Wkf5e+l7maRnp76XvZZ6Wkf5e+l7maRnp76XvZZ6Wkf5e+l7maRnp76XvZZ6Wkf5e+l7maRnp76XvZZ6Wkf5e+l7maRnp76XvZZ6Wkf5e+l7maRnp76XvZZ6Wkf5e+l7maRnp76XvZZ6Wkf5e+l7maRnp76XvZZ6Wkf5e+l7maRnp76XvZZ6Wkf5e+l7maRnp76XvZZ6Wkf5e+l7maRnp76XvZZ6Wkf5e+l7maRnp76XvZZ6Wkf5e+l7maRnp76XvZZ6Wkf5e+l7maRnp76XvZZ6Wkf5e+l7maRnp76XvZZ6Wkf5e+l7maRnp76XvZZ6Wkf5e+l7maRnp76XvZZ6Wkf5e+l7maRnp76XvZZ6Wkf5e+l7maRnp76XvZZ6Wkf5e+l7maRnp76XvZZ6Wkf5e+l7maRnp76XvZZ+Wkb6XvXvI3S/zS8vM69On09fS9zL/AKZp7OnL5E3UAAAAAElFTkSuQmCC" alt="Painting"></div>
-        
-        <div class="icon-btn" onclick="show('ΕΛΕΥΘΕΡΟ ΣΧΕΔΙΟ')"><img src="Drawing.png" alt="Drawing"></div>
-        <div class="icon-btn" onclick="show('COMIC')"><img src="Comic.png" alt="Comic"></div>
+            <i class="fas fa-paint-brush icon-btn" onclick="show('ΖΩΓΡΑΦΙΚΗ')"></i>
+            <i class="fas fa-pen-nib icon-btn" onclick="show('ΕΛΕΥΘΕΡΟ ΣΧΕΔΙΟ')"></i>
+            <i class="fas fa-comment icon-btn" onclick="show('COMIC')"></i>
         </div>
-        <div class="gears"><img src="Gears.png" class="gear-svg" style="animation:none"></div>
+        <div class="gears">
+            <i class="fas fa-cog fa-spin"></i>
+        </div>
         <div class="side-col">
-            <div class="icon-btn" onclick="show('CARTOON')"><img src="Cartoon.png" style="width:100%"></div>
-            <div class="icon-btn" onclick="show('ΕΙΚΟΝΟΓΡΑΦΗΣΗ')"><img src="Illustration.png" style="width:100%"></div>
-            <div class="icon-btn" onclick="openPortfolio()"><img src="Portfolio.png" style="width:100%"></div>
+            <i class="fas fa-mask icon-btn" onclick="show('CARTOON')"></i>
+            <i class="fas fa-palette icon-btn" onclick="show('ΕΙΚΟΝΟΓΡΑΦΗΣΗ')"></i>
+            <i class="fas fa-briefcase icon-btn" onclick="openPortfolio()"></i>
         </div>
     </div>
 
@@ -100,7 +78,7 @@
             <p>Illustrator - Ζωγράφος</p>
         </div>
         <div class="footer">
-            <a href="https://maps.google.com/?q=Παπαφλέσσα+47+Πύργος" target="_blank">📍 Παπαφλέσσα 47, Πύργος</a>
+            <a href="https://maps.app.goo.gl/3A3D4h4v7H5pW2P39" target="_blank">📍 Παπαφλέσσα 47, Πύργος</a>
             <a href="tel:6939637129">📞 6939 637129</a>
             <a href="mailto:toumazatosn@gmail.com">✉️ toumazatosn@gmail.com</a>
         </div>
@@ -117,21 +95,19 @@
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
-    let swiperInstance = null;
     function show(msg) {
         const display = document.getElementById('display-text');
         display.innerHTML = msg;
         setTimeout(() => { if(display.innerHTML === msg) display.innerHTML = ''; }, 2000);
     }
-    function openPortfolio() { 
-        document.getElementById('portfolio-overlay').classList.add('active'); 
-        loadPortfolio(); 
-    }
+    function openPortfolio() { document.getElementById('portfolio-overlay').classList.add('active'); }
     function closePortfolio() { document.getElementById('portfolio-overlay').classList.remove('active'); }
-    async function loadPortfolio() {
-        const wrapper = document.getElementById('swiper-content');
-        wrapper.innerHTML = '<div class="swiper-slide">Φόρτωση...</div>';
-    }
+
+    // Swiper Setup
+    const swiper = new Swiper('.swiper', {
+        pagination: { el: '.swiper-pagination', clickable: true },
+        loop: true
+    });
 </script>
 </body>
 </html>
