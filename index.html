@@ -2,122 +2,89 @@
 <html lang="el">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    
-    <title>Το Εργαστήρι - Τουμαζάτος Νίκος | Πύργος</title>
-    <meta name="description" content="Εργαστήρι Ζωγραφικής και Σχεδίου στον Πύργο - Τουμαζάτος Νίκος. Μαθήματα ζωγραφικής, σχέδιο, comic.">
-    <meta name="keywords" content="Πύργος, art, lesson, ζωγραφική, σχέδιο, σχολή, εικαστικά, Τουμαζάτος Νίκος, Παπαφλέσσα 47, εργαστήρι τέχνης, μαθήματα ζωγραφικής Πύργος, Ηλεία, comic, εικονογράφηση">
-    
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Το ΕΡΓΑΣΤΗΡΙ - Νίκος Τουμαζάτος</title>
+    <meta name="description" content="Το Εργαστήρι - Νίκος Τουμαζάτος, Illustrator - Ζωγράφος στον Πύργο.">
+    <meta name="keywords" content="Ζωγραφική, Πύργος, Illustrator, Τουμαζάτος, Εργαστήρι">
     
     <style>
-        :root { --yellow: #f1c40f; --grey: #57585a; }
-        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        :root {
+            --yellow: #f2d027;
+            --white: #ffffff;
+            --grey: #8a8d8f;
+        }
+
+        body { 
+            background-color: var(--white); 
+            margin: 0; 
+            color: #333; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            min-height: 100vh; 
+            font-family: 'Segoe UI', sans-serif; 
+        }
         
-        html, body { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; font-family: 'Segoe UI', sans-serif; background: white; }
+        @keyframes rotateGear { 
+            from { transform: rotate(0deg); } 
+            to { transform: rotate(360deg); } 
+        }
 
-        .wrapper { display: flex; flex-direction: column; height: 100vh; width: 100%; justify-content: space-between; align-items: center; padding-top: 20px; }
+        /* ΡΥΘΜΙΣΗ: ΜΕΓΑΛΟ ΓΡΑΝΑΖΙ */
+        .central-gear { 
+            width: 380px; 
+            fill: var(--yellow); 
+            animation: rotateGear 25s linear infinite; /* Πολύ αργή κίνηση */
+            margin: 40px 0; 
+        }
+
+        /* ΡΥΘΜΙΣΗ: ΜΙΚΡΑ ΕΙΚΟΝΙΔΙΑ */
+        .mini-icon { 
+            width: 25px; 
+            fill: var(--yellow); 
+            margin: 0 20px; 
+        }
+
+        h1 { color: var(--yellow); font-size: 3rem; margin-top: 50px; text-transform: uppercase; text-align: center; }
+        h2 { color: var(--yellow); margin: 0; text-align: center; }
+        p { text-align: center; font-size: 1.2rem; }
+
+        footer { 
+            width: 100%; 
+            background: var(--grey); 
+            color: white; 
+            text-align: center; 
+            padding: 25px 0; 
+            margin-top: auto; 
+            font-size: 1rem;
+        }
         
-        /* ΚΕΦΑΛΙΔΑ (Όπως η κάρτα) */
-        .header-section { text-align: center; flex-shrink: 0; }
-        #display-text { height: 25px; color: var(--yellow); font-weight: bold; font-size: 1.1em; text-transform: uppercase; }
-        .logo-top { color: var(--grey); font-size: 1em; font-weight: bold; letter-spacing: 3px; margin-bottom: -5px; }
-        .logo-main { color: var(--yellow); font-size: 2.5em; font-weight: 900; margin: 0; letter-spacing: -1px; text-transform: uppercase; }
-
-        /* ΠΛΕΓΜΑ ΕΙΚΟΝΙΔΙΩΝ */
-        .ui-grid { display: grid; grid-template-columns: 1fr 140px 1fr; align-items: center; justify-content: center; width: 100%; max-width: 400px; flex-grow: 1; }
-        .side-col { display: flex; flex-direction: column; gap: 45px; align-items: center; }
-        
-        .icon-btn { color: var(--yellow); font-size: 42px; cursor: pointer; transition: transform 0.2s; }
-        .icon-btn:active { transform: scale(0.8); }
-
-        .gears-center { display: flex; justify-content: center; color: var(--yellow); font-size: 75px; }
-
-        /* ΠΛΗΡΟΦΟΡΙΕΣ ΚΑΤΩ */
-        .bottom-section { width: 100%; flex-shrink: 0; text-align: center; margin-bottom: 20px; }
-        .name-tag { padding-bottom: 15px; }
-        .name-tag h2 { font-size: 1.7em; margin: 0; color: var(--yellow); text-transform: uppercase; }
-        .name-tag p { margin: 2px 0; font-size: 1.1em; font-weight: bold; color: var(--grey); }
-
-        .footer { background: var(--grey); color: white; padding: 20px 0 40px 0; width: 100%; display: flex; flex-direction: column; align-items: center; gap: 8px; font-size: 0.95em; }
-        .footer a { color: white; text-decoration: none; }
-
-        /* PORTFOLIO OVERLAY */
-        #portfolio-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: white; z-index: 9999; transform: translateY(100%); transition: 0.4s ease; display: flex; flex-direction: column; }
-        #portfolio-overlay.active { transform: translateY(0); }
-        .close-btn { padding: 15px; font-size: 35px; cursor: pointer; text-align: right; color: var(--grey); }
-        .swiper { width: 100%; flex: 1; }
-        .swiper-slide { display: flex; align-items: center; justify-content: center; padding: 20px; }
-        .swiper-slide img { max-width: 100%; max-height: 75vh; border-radius: 4px; object-fit: contain; }
+        a { color: white; text-decoration: none; }
     </style>
 </head>
 <body>
 
-<div class="wrapper">
-    <div class="header-section">
-        <div id="display-text"></div>
-        <div class="logo-top">ΤΟ</div>
-        <h1 class="logo-main">ΕΡΓΑΣΤΗΡΙ</h1>
-    </div>
-    
-    <div class="ui-grid">
-        <div class="side-col">
-            <i class="fas fa-paint-brush icon-btn" onclick="show('ΖΩΓΡΑΦΙΚΗ')"></i>
-            <i class="fas fa-pen-nib icon-btn" onclick="show('ΕΛΕΥΘΕΡΟ ΣΧΕΔΙΟ')"></i>
-            <i class="fas fa-comment-dots icon-btn" onclick="show('COMIC')"></i>
-        </div>
-        <div class="gears-center">
-            <i class="fas fa-cog fa-spin"></i>
-        </div>
-        <div class="side-col">
-            <i class="fas fa-user-ninja icon-btn" onclick="show('CARTOON')"></i>
-            <i class="fas fa-palette icon-btn" onclick="show('ΕΙΚΟΝΟΓΡΑΦΗΣΗ')"></i>
-            <i class="fas fa-briefcase icon-btn" onclick="openPortfolio()"></i>
-        </div>
+    <h1>ΤΟ ΕΡΓΑΣΤΗΡΙ</h1>
+
+    <svg class="central-gear" viewBox="0 0 24 24">
+        <path d="M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.23.09.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z"/>
+    </svg>
+
+    <div style="display: flex; justify-content: center; margin-bottom: 40px;">
+        <svg class="mini-icon" viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25z"/></svg>
+        <svg class="mini-icon" viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>
+        <svg class="mini-icon" viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
     </div>
 
-    <div class="bottom-section">
-        <div class="name-tag">
-            <h2>Τουμαζάτος Νίκος</h2>
-            <p>Illustrator - Ζωγράφος</p>
-        </div>
-        <div class="footer">
-            <a href="https://maps.google.com/?q=Παπαφλέσσα+47+Πύργος" target="_blank">📍 Παπαφλέσσα 47, Πύργος</a>
-            <a href="tel:6939637129">📞 6939 637129</a>
-            <a href="mailto:toumazatosn@gmail.com">✉️ toumazatosn@gmail.com</a>
-        </div>
+    <div style="margin-bottom: 50px;">
+        <h2>ΤΟΥΜΑΖΑΤΟΣ ΝΙΚΟΣ</h2>
+        <p>Illustrator - Ζωγράφος</p>
     </div>
-</div>
 
-<div id="portfolio-overlay">
-    <div class="close-btn" onclick="closePortfolio()">✕ Κλείσιμο</div>
-    <div class="swiper">
-        <div class="swiper-wrapper" id="swiper-content">
-            <div class="swiper-slide"><img src="https://via.placeholder.com/600x800?text=Portfolio+Image+1" alt="Work 1"></div>
-            <div class="swiper-slide"><img src="https://via.placeholder.com/600x800?text=Portfolio+Image+2" alt="Work 2"></div>
-        </div>
-        <div class="swiper-pagination"></div>
-    </div>
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script>
-    function show(msg) {
-        const display = document.getElementById('display-text');
-        display.innerHTML = msg;
-        setTimeout(() => { if(display.innerHTML === msg) display.innerHTML = ''; }, 2500);
-    }
-    
-    function openPortfolio() { document.getElementById('portfolio-overlay').classList.add('active'); }
-    function closePortfolio() { document.getElementById('portfolio-overlay').classList.remove('active'); }
-
-    const swiper = new Swiper('.swiper', {
-        pagination: { el: '.swiper-pagination', clickable: true },
-        grabCursor: true
-    });
-</script>
+    <footer>
+        <p>📍 Παπαφλέσσα 47, Πύργος | 📞 6939 637129</p>
+        <p>📧 <a href="mailto:toergastiripirgos@gmail.com">toergastiripirgos@gmail.com</a></p>
+    </footer>
 
 </body>
 </html>
