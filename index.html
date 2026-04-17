@@ -2,134 +2,83 @@
 <html lang="el">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Το ΕΡΓΑΣΤΗΡΙ - Νίκος Τουμαζάτος</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Το Εργαστήρι - Τουμαζάτος Νίκος</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap" rel="stylesheet">
+    
     <style>
-        :root {
-            --yellow: #f2d027; /* Το Κίτρινο της Κάρτας */
-            --black: #000000;  /* Ο Μαύρος Κώδικας */
-            --grey: #8a8d8f;   /* Το Γκρι της Κάρτας */
+        :root { 
+            --yellow: #f1c40f; 
+            --grey: #95a5a6; /* Το γκρι της κάρτας */
+            --dark-grey: #4a4a4a;
         }
+        
+        * { box-sizing: border-box; font-family: 'Comfortaa', cursive; -webkit-tap-highlight-color: transparent; }
+        
+        body { margin: 0; padding: 0; background: white; height: 100vh; display: flex; flex-direction: column; align-items: center; overflow: hidden; }
 
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: var(--black);
-            color: #ffffff;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            align-items: center;
-        }
+        .wrapper { width: 100%; max-width: 400px; display: flex; flex-direction: column; height: 100%; justify-content: space-between; }
 
-        /* HEADER SECTION */
-        header {
+        /* HEADER - ΣΥΜΦΩΝΑ ΜΕ ΤΟ PDF */
+        .header-section { text-align: center; padding-top: 30px; }
+        .logo-main { color: var(--yellow); font-size: 2.3em; font-weight: 700; margin: 0; text-transform: uppercase; }
+        .sub-name { color: var(--yellow); font-size: 1.2em; margin-top: 5px; }
+
+        /* UI GRID - ΕΠΑΝΑΦΟΡΑ ΣΕ ΚΙΤΡΙΝΟ/ΓΚΡΙ */
+        .ui-grid { display: grid; grid-template-columns: 1fr 140px 1fr; align-items: center; flex-grow: 1; padding: 20px; }
+        .side-col { display: flex; flex-direction: column; gap: 45px; align-items: center; }
+        
+        /* Εικονίδια από PDF */
+        .icon-btn { width: 35px; height: 35px; fill: var(--yellow); cursor: pointer; }
+        .gear-svg { width: 120px; fill: var(--grey); opacity: 0.3; animation: rotate 25s linear infinite; }
+
+        /* FOOTER - ΓΚΡΙ ΜΕ ΛΕΥΚΑ ΓΡΑΜΜΑΤΑ */
+        .footer { 
+            background: var(--grey); 
+            color: white; 
+            padding: 20px 0 40px 0; 
             text-align: center;
-            padding: 40px 20px;
-        }
-
-        .brand {
-            color: var(--yellow);
-            font-size: 3rem;
-            font-weight: bold;
-            margin: 0;
-            letter-spacing: 2px;
-        }
-
-        /* MAIN VISUAL AREA */
-        .container {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
             width: 100%;
+            border-top: 5px solid white;
         }
+        .footer a { color: white; text-decoration: none; font-size: 0.9em; display: block; margin: 4px 0; }
+        .footer .address { font-weight: bold; margin-bottom: 5px; }
 
-        /* ΡΥΘΜΙΣΗ: ΜΕΓΑΛΟ ΓΡΑΝΑΖΙ ΣΤΗ ΜΕΣΗ */
-        .main-gear {
-            width: 320px; /* Αυξημένο μέγεθος */
-            height: auto;
-            fill: var(--yellow);
-            margin: 20px 0;
-        }
-
-        /* ΡΥΘΜΙΣΗ: ΜΙΚΡΑ ΕΙΚΟΝΙΔΙΑ */
-        .icon-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-            margin-top: 20px;
-        }
-
-        .small-icon {
-            width: 30px; /* Μικρό μέγεθος */
-            height: auto;
-            fill: var(--yellow);
-        }
-
-        /* TEXT SECTION */
-        .artist-info {
-            text-align: center;
-            margin-top: 30px;
-        }
-
-        .name {
-            color: var(--yellow);
-            font-size: 1.8rem;
-            margin: 0;
-        }
-
-        .title {
-            color: #ffffff;
-            font-size: 1.2rem;
-            opacity: 0.8;
-        }
-
-        /* FOOTER: ΤΟ ΓΚΡΙ ΤΗΣ ΚΑΡΤΑΣ */
-        footer {
-            width: 100%;
-            background-color: var(--grey);
-            color: #ffffff;
-            padding: 20px 0;
-            text-align: center;
-            font-size: 0.9rem;
-            line-height: 1.6;
-        }
-
-        .footer-link {
-            color: #ffffff;
-            text-decoration: none;
-        }
+        @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
     </style>
 </head>
 <body>
-
-    <header>
-        <div class="brand">ΤΟ ΕΡΓΑΣΤΗΡΙ</div>
-    </header>
-
-    <div class="container">
-        <svg class="main-gear" viewBox="0 0 24 24"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
-
-        <div class="icon-grid">
-            <svg class="small-icon" viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
-            <svg class="small-icon" viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>
-            <svg class="small-icon" viewBox="0 0 24 24"><path d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2z"/></svg>
+    <div class="wrapper">
+        <div class="header-section">
+            <h1 class="logo-main">Το ΕΡΓΑΣΤΗΡΙ</h1>
+            <div class="sub-name">Τουμαζάτος Νίκος</div>
+            <div style="color: var(--grey); font-size: 0.9em;">Illustrator - Ζωγράφος</div>
         </div>
 
-        <div class="artist-info">
-            <h2 class="name">ΤΟΥΜΑΖΑΤΟΣ ΝΙΚΟΣ</h2>
-            <p class="title">Illustrator - Ζωγράφος</p>
+        <div class="ui-grid">
+            <div class="side-col">
+                <div class="icon-btn" onclick="show('ΕΛΕΥΘΕΡΟ ΣΧΕΔΙΟ')"><svg viewBox="0 0 24 24"><path d="M20.7,7c0.4,0.4,0.4,1,0,1.4l-11,11c-0.4,0.4-1,0.4-1.4,0l-5-5c-0.4-0.4-0.4-1,0-1.4s1-0.4,1.4,0l4.3,4.3L19.3,7C19.7,6.6,20.3,6.6,20.7,7z M3,3h18v2H3V3z"/></svg></div>
+                <div class="icon-btn" onclick="show('ΖΩΓΡΑΦΙΚΗ')"><svg viewBox="0 0 24 24"><path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18A6,6 0 0,0 18,12A6,6 0 0,0 12,6Z"/></svg></div>
+                <div class="icon-btn" onclick="show('COMIK')"><svg viewBox="0 0 24 24"><path d="M12,2C6.47,2 2,6.47 2,12C2,17.53 6.47,22 12,22C17.53,22 22,17.53 22,12C22,6.47 17.53,2 12,2M12,20C7.58,20 4,16.42 4,12C4,7.58 7.58,4 12,4C16.42,4 20,7.58 20,12C20,16.42 16.42,20 12,20Z"/></svg></div>
+            </div>
+            <div class="gears">
+                <svg class="gear-svg" viewBox="0 0 24 24"><path d="M12,15.5A3.5,3.5 0 0,1 8.5,12A3.5,3.5 0 0,1 12,8.5A3.5,3.5 0 0,1 15.5,12A3.5,3.5 0 0,1 12,15.5M19.43,12.97C19.47,12.65 19.5,12.33 19.5,12C19.5,11.67 19.47,11.34 19.43,11L21.54,9.37C21.73,9.22 21.78,8.95 21.66,8.73L19.66,5.27C19.54,5.05 19.27,4.97 19.05,5.05L16.56,6.05C16.04,5.65 15.44,5.32 14.79,5.05L14.42,2.38C14.38,2.15 14.17,2 13.95,2H9.97C9.75,2 9.55,2.15 9.51,2.38L9.14,5.05C8.49,5.32 7.89,5.65 7.37,6.05L4.88,5.05C4.65,4.97 4.39,5.05 4.27,5.27L2.27,8.73C2.15,8.95 2.2,9.22 2.39,9.37L4.5,11C4.46,11.34 4.43,11.67 4.43,12C4.43,12.33 4.46,12.65 4.5,12.97L2.39,14.63C2.2,14.78 2.15,15.05 2.27,15.27L4.27,18.73C4.39,18.95 4.65,19.03 4.88,18.95L7.37,17.95C7.89,18.35 8.49,18.68 9.14,18.95L9.51,21.62C9.55,21.85 9.75,22 9.97,22H13.95C14.17,22 14.38,21.85 14.42,21.62L14.79,18.95C15.44,18.68 16.04,18.35 16.56,17.95L19.05,18.95C19.27,19.03 19.54,18.95 19.66,18.73L21.66,15.27C21.78,15.05 21.73,14.78 21.54,14.63L19.43,11L21.54,9.37Z"/></svg>
+            </div>
+            <div class="side-col">
+                <div class="icon-btn" onclick="show('CARTOON')"><svg viewBox="0 0 24 24"><path d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"/></svg></div>
+                <div class="icon-btn" onclick="show('ΕΙΚΟΝΟΓΡΑΦΗΣΗ')"><svg viewBox="0 0 24 24"><path d="M18.5,2C17.17,2 16,3.17 16,4.5C16,5.83 17.17,7 18.5,7C19.83,7 21,5.83 21,4.5C21,3.17 19.83,2 18.5,2M4,2V4H14V2H4M4,6V8H14V6H4M4,10V12H14V10H4M4,14V16H11V14H4M4,18V20H11V18H4Z"/></svg></div>
+                <div class="icon-btn" onclick="openPortfolio()"><svg viewBox="0 0 24 24"><path d="M10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6H12L10,4Z"/></svg></div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="address">📍 Παπαφλέσσα 47, Πύργος</div>
+            <a href="tel:6939637129">📞 6939 637129</a>
+            <a href="mailto:toumazatosn@gmail.com">✉️ toumazatosn@gmail.com</a>
         </div>
     </div>
-
-    <footer>
-        <p>📍 Παπαφλέσσα 47, Πύργος</p>
-        <p>📞 6939 637129</p>
-        <p>📧 <a href="mailto:toergastiripirgos@gmail.com" class="footer-link">toergastiripirgos@gmail.com</a></p>
-    </footer>
-
 </body>
 </html>
