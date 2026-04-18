@@ -29,7 +29,7 @@
             position: relative; 
             width: 100%; 
             max-width: 500px; 
-            animation: fadeIn 0.8s ease-in;
+            animation: fadeIn 1s ease-in;
         }
 
         @keyframes fadeIn {
@@ -39,9 +39,10 @@
 
         .main-layout { width: 100%; display: block; }
 
+        /* Χώρος εμφάνισης κειμένου */
         #display-text {
             position: absolute;
-            top: 25.5%; /* Προσαρμογή ύψους κειμένου */
+            top: 25.5%; 
             width: 100%;
             text-align: center;
             color: var(--yellow-brand);
@@ -51,39 +52,39 @@
             pointer-events: none;
             min-height: 1.5em;
             z-index: 10;
+            transition: all 0.3s ease;
         }
 
-        .cal-box {
+        /* Αόρατα κουμπιά εικονιδίων */
+        .icon-link {
             position: absolute;
-            background: rgba(255, 0, 0, 0.4); 
-            border: 1px solid rgba(255, 0, 0, 0.6);
+            background: rgba(255, 255, 255, 0); /* Τελείως αόρατο */
             cursor: pointer;
-            border-radius: 5px;
+            z-index: 5;
             transition: transform 0.2s ease;
-            z-index: 5;
         }
 
-        .footer-box {
+        /* Εφέ όταν το "χέρι" είναι πάνω από το εικονίδιο */
+        .icon-link:hover {
+            transform: scale(1.15);
+        }
+
+        /* Αόρατα κουμπιά footer */
+        .footer-link {
             position: absolute;
-            background: rgba(0, 255, 0, 0.4); 
-            border: 1px solid rgba(0, 255, 0, 0.6);
+            background: rgba(255, 255, 255, 0); /* Τελείως αόρατο */
             cursor: pointer;
             z-index: 5;
         }
 
-        /* --- ΔΙΟΡΘΩΜΕΝΑ ΠΟΣΟΣΤΑ ΒΑΘΜΟΝΟΜΗΣΗΣ v1.7 --- */
-        
-        /* Αριστερά εικονίδια - Κατέβασμα 1.5% */
+        /* ΤΕΛΙΚΑ ΠΟΣΟΣΤΑ ΒΑΣΕΙ ΒΑΘΜΟΝΟΜΗΣΗΣ */
         .btn-1 { top: 43%; left: 1%; width: 12%; height: 7%; } 
         .btn-2 { top: 50.3%; left: 1%; width: 12%; height: 7%; } 
         .btn-3 { top: 57.7%; left: 1%; width: 12%; height: 7%; } 
-
-        /* Δεξιά εικονίδια - Κατέβασμα 1.5% */
         .btn-4 { top: 43%; right: 1%; width: 12%; height: 7%; } 
         .btn-5 { top: 50.3%; right: 1%; width: 12%; height: 7%; } 
         .btn-6 { top: 57.7%; right: 1%; width: 12%; height: 7%; } 
 
-        /* Footer Στοιχεία - Παραμένουν ως έχουν */
         .f-addr { bottom: 13.5%; left: 25%; width: 50%; height: 4.5%; } 
         .f-tel  { bottom: 8.5%;  left: 30%; width: 40%; height: 4.5%; } 
         .f-mail { bottom: 3.5%;  left: 20%; width: 60%; height: 4.5%; } 
@@ -94,31 +95,37 @@
 
 <div class="wrapper">
     <div id="display-text"></div>
-    <img src="images/index-layout.png" alt="Το Εργαστήρι Layout" class="main-layout">
+    
+    <img src="images/index-layout.png" alt="Το Εργαστήρι - Τουμαζάτος Νίκος" class="main-layout">
 
-    <div class="cal-box btn-1" onmouseover="showText('ΕΛΕΥΘΕΡΟ ΣΧΕΔΙΟ')" onmouseout="clearText()"></div>
-    <div class="cal-box btn-2" onmouseover="showText('ΖΩΓΡΑΦΙΚΗ')" onmouseout="clearText()"></div>
-    <div class="cal-box btn-3" onmouseover="showText('COMIK')" onmouseout="clearText()"></div>
-    <div class="cal-box btn-4" onmouseover="showText('CARTOON')" onmouseout="clearText()"></div>
-    <div class="cal-box btn-5" onmouseover="showText('ΕΙΚΟΝΟΓΡΑΦΗΣΗ')" onmouseout="clearText()"></div>
-    <div class="cal-box btn-6" onclick="openPortfolio()" onmouseover="showText('PORTFOLIO')" onmouseout="clearText()"></div>
+    <div class="icon-link btn-1" onmouseover="showText('ΕΛΕΥΘΕΡΟ ΣΧΕΔΙΟ')" onmouseout="clearText()"></div>
+    <div class="icon-link btn-2" onmouseover="showText('ΖΩΓΡΑΦΙΚΗ')" onmouseout="clearText()"></div>
+    <div class="icon-link btn-3" onmouseover="showText('COMIK')" onmouseout="clearText()"></div>
+    <div class="icon-link btn-4" onmouseover="showText('CARTOON')" onmouseout="clearText()"></div>
+    <div class="icon-link btn-5" onmouseover="showText('ΕΙΚΟΝΟΓΡΑΦΗΣΗ')" onmouseout="clearText()"></div>
+    <div class="icon-link btn-6" onclick="openPortfolio()" onmouseover="showText('PORTFOLIO')" onmouseout="clearText()"></div>
 
-    <a href="https://www.google.com/maps/search/?api=1&query=Παπαφλέσσα+47+Πύργος" target="_blank" class="footer-box f-addr"></a>
-    <a href="tel:6939637129" class="footer-box f-tel"></a>
-    <a href="mailto:toumazatosn@gmail.com" class="footer-box f-mail"></a>
+    <a href="https://www.google.com/maps/search/?api=1&query=Παπαφλέσσα+47+Πύργος" target="_blank" class="footer-link f-addr"></a>
+    <a href="tel:6939637129" class="footer-link f-tel"></a>
+    <a href="mailto:toumazatosn@gmail.com" class="footer-link f-mail"></a>
 </div>
 
 <script>
+    const display = document.getElementById('display-text');
+
     function showText(msg) {
-        document.getElementById('display-text').innerText = msg;
+        display.innerText = msg;
+        display.style.opacity = "1";
     }
 
     function clearText() {
-        document.getElementById('display-text').innerText = "";
+        display.innerText = "";
+        display.style.opacity = "0";
     }
 
     function openPortfolio() {
-        alert("Ανοίγει το Portfolio του Νίκου...");
+        // Υποδομή για μελλοντικό άνοιγμα gallery
+        window.location.href = "images/portfolio/"; 
     }
 </script>
 
