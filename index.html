@@ -39,6 +39,7 @@
 
         .main-layout { width: 100%; display: block; }
 
+        /* Χώρος εμφάνισης κειμένου - ΤΕΛΙΚΟ ΚΕΝΤΡΑΡΙΣΜΑ */
         #display-text {
             position: absolute;
             top: 22%; 
@@ -51,10 +52,10 @@
             pointer-events: none;
             min-height: 1.5em;
             z-index: 10;
-            transition: all 0.2s ease;
-            opacity: 0;
+            transition: all 0.3s ease;
         }
 
+        /* Αόρατα κουμπιά εικονιδίων */
         .icon-link {
             position: absolute;
             background: rgba(255, 255, 255, 0); 
@@ -74,7 +75,7 @@
             z-index: 5;
         }
 
-        /* Calibration Positions */
+        /* ΘΕΣΕΙΣ ΒΑΣΕΙ ΤΕΛΕΥΤΑΙΑΣ ΒΑΘΜΟΝΟΜΗΣΗΣ */
         .btn-1 { top: 43%; left: 1%; width: 12%; height: 7%; } 
         .btn-2 { top: 50.3%; left: 1%; width: 12%; height: 7%; } 
         .btn-3 { top: 57.7%; left: 1%; width: 12%; height: 7%; } 
@@ -97,12 +98,12 @@
 
     <div class="icon-link btn-1" onmouseover="showText('ΕΛΕΥΘΕΡΟ ΣΧΕΔΙΟ')" onmouseout="clearText()"></div>
     <div class="icon-link btn-2" onmouseover="showText('ΖΩΓΡΑΦΙΚΗ')" onmouseout="clearText()"></div>
-    <div class="icon-link btn-3" onmouseover="showText('COMIC')" onmouseout="clearText()"></div>
+    <div class="icon-link btn-3" onmouseover="showText('COMIK')" onmouseout="clearText()"></div>
     <div class="icon-link btn-4" onmouseover="showText('CARTOON')" onmouseout="clearText()"></div>
     <div class="icon-link btn-5" onmouseover="showText('ΕΙΚΟΝΟΓΡΑΦΗΣΗ')" onmouseout="clearText()"></div>
     <div class="icon-link btn-6" onclick="openPortfolio()" onmouseover="showText('PORTFOLIO')" onmouseout="clearText()"></div>
 
-    <a href="https://maps.google.com/?q=37.67448,21.43983" target="_blank" class="footer-link f-addr"></a>
+    <a href="https://www.google.com/maps/search/?api=1&query=Παπαφλέσσα+47+Πύργος+27131" target="_blank" class="footer-link f-addr"></a>
     <a href="tel:6939637129" class="footer-link f-tel"></a>
     <a href="mailto:toumazatosn@gmail.com" class="footer-link f-mail"></a>
 </div>
@@ -116,6 +117,7 @@
     }
 
     function clearText() {
+        display.innerText = "";
         display.style.opacity = "0";
     }
 
