@@ -39,10 +39,10 @@
 
         .main-layout { width: 100%; display: block; }
 
-        /* Χώρος εμφάνισης κειμένου */
+        /* Χώρος εμφάνισης κειμένου - Μετακίνηση πιο πάνω */
         #display-text {
             position: absolute;
-            top: 25.5%; 
+            top: 23.5%; 
             width: 100%;
             text-align: center;
             color: var(--yellow-brand);
@@ -58,26 +58,24 @@
         /* Αόρατα κουμπιά εικονιδίων */
         .icon-link {
             position: absolute;
-            background: rgba(255, 255, 255, 0); /* Τελείως αόρατο */
+            background: rgba(255, 255, 255, 0); 
             cursor: pointer;
             z-index: 5;
             transition: transform 0.2s ease;
         }
 
-        /* Εφέ όταν το "χέρι" είναι πάνω από το εικονίδιο */
         .icon-link:hover {
             transform: scale(1.15);
         }
 
-        /* Αόρατα κουμπιά footer */
         .footer-link {
             position: absolute;
-            background: rgba(255, 255, 255, 0); /* Τελείως αόρατο */
+            background: rgba(255, 255, 255, 0); 
             cursor: pointer;
             z-index: 5;
         }
 
-        /* ΤΕΛΙΚΑ ΠΟΣΟΣΤΑ ΒΑΣΕΙ ΒΑΘΜΟΝΟΜΗΣΗΣ */
+        /* ΘΕΣΕΙΣ ΒΑΣΕΙ ΤΕΛΕΥΤΑΙΑΣ ΒΑΘΜΟΝΟΜΗΣΗΣ */
         .btn-1 { top: 43%; left: 1%; width: 12%; height: 7%; } 
         .btn-2 { top: 50.3%; left: 1%; width: 12%; height: 7%; } 
         .btn-3 { top: 57.7%; left: 1%; width: 12%; height: 7%; } 
@@ -124,7 +122,6 @@
     }
 
     function openPortfolio() {
-        // Υποδομή για μελλοντικό άνοιγμα gallery
         window.location.href = "images/portfolio/"; 
     }
 </script>
