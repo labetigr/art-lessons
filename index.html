@@ -64,11 +64,6 @@
             z-index: 5;
         }
 
-        .cal-box:hover {
-            transform: scale(1.1);
-            background: rgba(255, 255, 0, 0.2);
-        }
-
         .footer-box {
             position: absolute;
             background: rgba(0, 255, 0, 0.4); 
@@ -77,19 +72,19 @@
             z-index: 5;
         }
 
-        /* --- ΔΙΟΡΘΩΜΕΝΑ ΠΟΣΟΣΤΑ ΒΑΘΜΟΝΟΜΗΣΗΣ v1.4 --- */
+        /* --- ΔΙΟΡΘΩΜΕΝΑ ΠΟΣΟΣΤΑ ΒΑΘΜΟΝΟΜΗΣΗΣ v1.5 --- */
         
-        /* Αριστερά εικονίδια - Σπρώξιμο προς τα έξω (μικρότερο Left) */
-        .btn-1 { top: 41.5%; left: 18.5%; width: 9%; height: 7%; } 
-        .btn-2 { top: 48.8%; left: 18.5%; width: 9%; height: 7%; } 
-        .btn-3 { top: 56.2%; left: 18.5%; width: 9%; height: 7%; } 
+        /* Αριστερά εικονίδια - Τέρμα αριστερά */
+        .btn-1 { top: 41.5%; left: 5%; width: 11%; height: 7%; } 
+        .btn-2 { top: 48.8%; left: 5%; width: 11%; height: 7%; } 
+        .btn-3 { top: 56.2%; left: 5%; width: 11%; height: 7%; } 
 
-        /* Δεξιά εικονίδια - Σπρώξιμο προς τα έξω (μικρότερο Right) */
-        .btn-4 { top: 41.5%; right: 18.5%; width: 9%; height: 7%; } 
-        .btn-5 { top: 48.8%; right: 18.5%; width: 9%; height: 7%; } 
-        .btn-6 { top: 56.2%; right: 18.5%; width: 9%; height: 7%; } 
+        /* Δεξιά εικονίδια - Τέρμα δεξιά */
+        .btn-4 { top: 41.5%; right: 5%; width: 11%; height: 7%; } 
+        .btn-5 { top: 48.8%; right: 5%; width: 11%; height: 7%; } 
+        .btn-6 { top: 56.2%; right: 5%; width: 11%; height: 7%; } 
 
-        /* Footer Στοιχεία - Παραμένουν ως έχουν (ήταν σωστά) */
+        /* Footer Στοιχεία - Παραμένουν ως έχουν */
         .f-addr { bottom: 13.5%; left: 25%; width: 50%; height: 4.5%; } 
         .f-tel  { bottom: 8.5%;  left: 30%; width: 40%; height: 4.5%; } 
         .f-mail { bottom: 3.5%;  left: 20%; width: 60%; height: 4.5%; } 
@@ -118,13 +113,10 @@
     function showText(msg) {
         const txt = document.getElementById('display-text');
         txt.innerText = msg;
-        txt.style.transform = "scale(1.1)";
     }
 
     function clearText() {
-        const txt = document.getElementById('display-text');
-        txt.innerText = "";
-        txt.style.transform = "scale(1)";
+        document.getElementById('display-text').innerText = "";
     }
 
     function openPortfolio() {
