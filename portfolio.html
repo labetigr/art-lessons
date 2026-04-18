@@ -1,1 +1,59 @@
 
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Το Εργαστήρι</title>
+    <style>
+        :root { --yellow: #f1c40f; --dark: #1a1a1a; }
+        body { margin: 0; background: var(--dark); font-family: sans-serif; color: white; }
+        .header { padding: 20px; background: #222; border-bottom: 2px solid var(--yellow); display: flex; align-items: center; }
+        .back-btn { color: var(--yellow); text-decoration: none; font-weight: bold; font-size: 20px; margin-right: 20px; }
+        .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); grid-gap: 15px; padding: 20px; }
+        .gallery-item { border-radius: 8px; overflow: hidden; border: 1px solid #333; aspect-ratio: 1/1; cursor: pointer; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.3s; }
+        .gallery-item:hover img { transform: scale(1.1); }
+        #lightbox { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); justify-content: center; align-items: center; z-index: 1000; }
+        #lightbox img { max-width: 90%; max-height: 90%; border: 2px solid var(--yellow); }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <a href="index.html" class="back-btn">←</a>
+    <h2 style="margin:0; font-size: 18px; letter-spacing: 1px;">PORTFOLIO</h2>
+</div>
+
+<div class="gallery" id="gallery"></div>
+
+<div id="lightbox" onclick="this.style.display='none'">
+    <img id="lightbox-img" src="">
+</div>
+
+<script>
+    // Εδώ βάζουμε τον αριθμό των φωτογραφιών που ανέβασες (π.χ. 4)
+    const totalImages = 4; 
+    const container = document.getElementById('gallery');
+
+    for (let i = 1; i <= totalImages; i++) {
+        const item = document.createElement('div');
+        item.className = 'gallery-item';
+        
+        const img = document.createElement('img');
+        // Προσοχή: Εδώ έβαλα το .jpg.jpg επειδή έτσι ονομάστηκαν στο GitHub σου
+        const imagePath = `images/portfolio/${i}.jpg.jpg`;
+        img.src = imagePath;
+        
+        item.onclick = () => {
+            document.getElementById('lightbox-img').src = imagePath;
+            document.getElementById('lightbox').style.display = 'flex';
+        };
+
+        item.appendChild(img);
+        container.appendChild(item);
+    }
+</script>
+
+</body>
+</html>
