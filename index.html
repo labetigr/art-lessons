@@ -72,19 +72,19 @@
             z-index: 5;
         }
 
-        /* --- ΔΙΟΡΘΩΜΕΝΑ ΠΟΣΟΣΤΑ ΒΑΘΜΟΝΟΜΗΣΗΣ v1.5 --- */
+        /* --- ΔΙΟΡΘΩΜΕΝΑ ΠΟΣΟΣΤΑ ΒΑΘΜΟΝΟΜΗΣΗΣ v1.6 --- */
         
-        /* Αριστερά εικονίδια - Τέρμα αριστερά */
-        .btn-1 { top: 41.5%; left: 5%; width: 11%; height: 7%; } 
-        .btn-2 { top: 48.8%; left: 5%; width: 11%; height: 7%; } 
-        .btn-3 { top: 56.2%; left: 5%; width: 11%; height: 7%; } 
+        /* Αριστερά εικονίδια - Τέρμα άκρη */
+        .btn-1 { top: 42%; left: 1%; width: 12%; height: 7%; } 
+        .btn-2 { top: 49.3%; left: 1%; width: 12%; height: 7%; } 
+        .btn-3 { top: 56.7%; left: 1%; width: 12%; height: 7%; } 
 
-        /* Δεξιά εικονίδια - Τέρμα δεξιά */
-        .btn-4 { top: 41.5%; right: 5%; width: 11%; height: 7%; } 
-        .btn-5 { top: 48.8%; right: 5%; width: 11%; height: 7%; } 
-        .btn-6 { top: 56.2%; right: 5%; width: 11%; height: 7%; } 
+        /* Δεξιά εικονίδια - Τέρμα άκρη */
+        .btn-4 { top: 42%; right: 1%; width: 12%; height: 7%; } 
+        .btn-5 { top: 49.3%; right: 1%; width: 12%; height: 7%; } 
+        .btn-6 { top: 56.7%; right: 1%; width: 12%; height: 7%; } 
 
-        /* Footer Στοιχεία - Παραμένουν ως έχουν */
+        /* Footer Στοιχεία - ΟΚ */
         .f-addr { bottom: 13.5%; left: 25%; width: 50%; height: 4.5%; } 
         .f-tel  { bottom: 8.5%;  left: 30%; width: 40%; height: 4.5%; } 
         .f-mail { bottom: 3.5%;  left: 20%; width: 60%; height: 4.5%; } 
@@ -111,8 +111,7 @@
 
 <script>
     function showText(msg) {
-        const txt = document.getElementById('display-text');
-        txt.innerText = msg;
+        document.getElementById('display-text').innerText = msg;
     }
 
     function clearText() {
