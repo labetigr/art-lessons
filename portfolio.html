@@ -10,7 +10,7 @@
         .h { padding: 15px; background: #222; border-bottom: 2px solid var(--y); display: flex; align-items: center; position: sticky; top: 0; z-index: 10; }
         .btn { color: var(--y); text-decoration: none; font-size: 24px; margin-right: 20px; }
         .g { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); grid-gap: 10px; padding: 10px; }
-        .i { border-radius: 5px; overflow: hidden; aspect-ratio: 1/1; cursor: pointer; background: #252525; }
+        .i { border-radius: 5px; overflow: hidden; aspect-ratio: 1/1; cursor: pointer; background: #252525; display: none; } /* Κρυφό μέχρι να φορτώσει */
         .i img { width: 100%; height: 100%; object-fit: cover; }
         #l { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); justify-content: center; align-items: center; z-index: 100; }
         #l img { max-width: 95%; max-height: 95%; border: 1px solid var(--y); }
@@ -21,15 +21,19 @@
     <div class="g" id="c"></div>
     <div id="l" onclick="this.style.display='none'"><img id="li" src=""></div>
     <script>
-        const n = 4; 
+        const maxImages = 100; // Ένα μεγάλο όριο
         const c = document.getElementById('c');
-        for (let i = 1; i <= n; i++) {
+
+        for (let i = 1; i <= maxImages; i++) {
             const d = document.createElement('div');
             d.className = 'i';
             const m = document.createElement('img');
             const p = `images/portfolio/${i}.jpg.jpg`;
+            
             m.src = p;
-            m.loading = "lazy";
+            m.onload = () => { d.style.display = 'block'; }; // Εμφάνιση μόνο αν υπάρχει
+            m.onerror = () => { d.remove(); }; // Διαγραφή αν δεν υπάρχει
+            
             d.onclick = () => { document.getElementById('li').src = p; document.getElementById('l').style.display = 'flex'; };
             d.appendChild(m);
             c.appendChild(d);
